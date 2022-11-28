@@ -2,10 +2,10 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-photo',
-  templateUrl: './photo.component.component.html',
-  styleUrls: ['./photo.component.component.css']
+  templateUrl: './photo.component.html',
+  styleUrls: ['./photo.component.css']
 })
-export class PhotoComponentComponent {
+export class PhotoComponent {
 
    @Input() title = ''
    @Input() description = ''
