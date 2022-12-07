@@ -7,6 +7,7 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
 import { PhotoComponent } from './photo/photo.component';
 import { PhotosComponent } from './photo-list/photos/photos.component';
 import { FilterByDescription } from './photo-list/filter-by-description';
+import { LoadButtonComponent } from './photo-list/load-button/load-button.component';
 
 
 
@@ -16,7 +17,8 @@ import { FilterByDescription } from './photo-list/filter-by-description';
          PhotoListComponent,
          PhotoFormComponent,
          PhotosComponent,
-         FilterByDescription
+         FilterByDescription,
+         LoadButtonComponent
         ],
     imports: [
         HttpClientModule,
