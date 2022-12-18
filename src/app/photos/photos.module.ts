@@ -1,3 +1,4 @@
+import { DarkenOnHoverModule } from './../shared/directives/darken-on-hover/darken-on-hover.module';
 import { SearchComponent } from './photo-list/search/search.component';
 import { PhotoFormComponent } from './photo-form/photo-form.component';
 import { NgModule } from '@angular/core';
@@ -26,7 +27,8 @@ import { CardModule } from '../shared/components/card/card.module';
     imports: [
         HttpClientModule,
         CommonModule,
-        CardModule
+        CardModule,
+        DarkenOnHoverModule
     ]
 })
 
