@@ -1,3 +1,4 @@
+import { ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from './../../core/auth.service';
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 export class SigninComponent implements OnInit {
 
     loginForm!: FormGroup;
+    @ViewChild('userNameInput')
+    userNameInput!: ElementRef<HTMLInputElement>;
 
     constructor(private formBuilder: FormBuilder,
                 private AuthService: AuthService,
@@ -35,8 +38,8 @@ export class SigninComponent implements OnInit {
         this.AuthService.authenticate(userName, password)
             .subscribe(() => this.router.navigateByUrl('user/' + userName),
             erro => {
-            alert('sssss')
             this.loginForm.reset()
+            this.userNameInput.nativeElement.focus()
             }
                 
         )
