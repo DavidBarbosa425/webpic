@@ -1,5 +1,6 @@
+import { PlatformDetectorService } from './../../core/platform-detector/platform-detector.service';
 import { ElementRef, ViewChild } from '@angular/core';
-import { AuthService } from './../../core/auth.service';
+import { AuthService } from '../../core/auth/auth.service';
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -18,7 +19,8 @@ export class SigninComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder,
                 private AuthService: AuthService,
-                private router: Router) {
+                private router: Router,
+                private platformDetectorService: PlatformDetectorService) {
 
     }
 
@@ -39,6 +41,7 @@ export class SigninComponent implements OnInit {
             .subscribe(() => this.router.navigateByUrl('user/' + userName),
             erro => {
             this.loginForm.reset()
+            this.platformDetectorService.isPlatform() &&
             this.userNameInput.nativeElement.focus()
             }
                 
