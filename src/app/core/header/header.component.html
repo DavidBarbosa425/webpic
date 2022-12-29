@@ -1,8 +1,19 @@
 <header>
     <nav class="navbar navbar-light bg-white">
-        <div class="ms-auto me-3">
-            <i class="fa fa-user-circle"></i>
-            <a> {{ user.name }} </a>
+        <div  class="me-auto m-2">
+            <h3 appDarkenOnHover><span class="text-primary">Web</span><span class="text-success">Pic</span></h3>
+
         </div>
+        <div *ngIf="(user$ | async) as user; else login" class="ms-auto">
+            <i class="fa fa-user-circle me-1"></i>
+            <a> {{ user.name }} </a>
+            <a (click)="logout()" class="me-2" appDarkenOnHover>(logout)</a>
+        </div>
+
+        <ng-template #login>
+            <span class="navbar-text ms-auto me-3">
+                Please, login!
+            </span>
+        </ng-template>
     </nav>
 </header>

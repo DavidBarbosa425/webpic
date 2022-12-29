@@ -1,6 +1,7 @@
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from './../user/user.service';
-import { Component, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import { User } from '../user/user';
 
 @Component({
@@ -10,13 +11,18 @@ import { User } from '../user/user';
 
 export class HeaderComponent {
 
-    user$: Observable<User>;
-    user!: User;
+    user$: Observable<User | null>;
 
-    constructor(private userService: UserService) {
+
+    constructor(private userService: UserService,
+                private router: Router) {
 
       this.user$ = userService.getUser()
-      this.user$.subscribe(user => this.user = user)
+    }
+
+    logout(){
+      this.userService.logout()
+      this.router.navigateByUrl('')
     }
      
     

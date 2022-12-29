@@ -10,7 +10,7 @@ import jwtDecode from 'jwt-decode';
 
 export class UserService {
 
-    private userSubject = new BehaviorSubject<User>({id:0, name:'',email:''})
+    private userSubject = new BehaviorSubject<User | null>(null)
     constructor(private tokenService: TokenService) {
 
         this.tokenService.hasToken() &&
@@ -26,6 +26,11 @@ export class UserService {
     getUser() {
         return this.userSubject.asObservable()
 
+    }
+
+    logout() {
+        this.tokenService.removeToken()
+        this.userSubject.next(null)
     }
 
     private decodeAndNotify() {
