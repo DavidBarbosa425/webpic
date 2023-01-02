@@ -7,12 +7,12 @@
         <div *ngIf="(user$ | async) as user; else login" class="ms-auto">
             <i class="fa fa-user-circle me-1"></i>
             <a> {{ user.name }} </a>
-            <a (click)="logout()" class="me-2" appDarkenOnHover>(logout)</a>
+            <a (click)="logout()" class="me-2 text-dark" >(logout)</a>
         </div>
 
         <ng-template #login>
             <span class="navbar-text ms-auto me-3">
-                Please, login!
+              <a [routerLink]="['']">Please, login!</a>  
             </span>
         </ng-template>
     </nav>
