@@ -18,7 +18,6 @@ import { coreModule } from './core/core.module';
     BrowserModule,
     PhotosModule,
     AppRoutingModule,
-    HomeModule,
     coreModule
   ],
   providers: [],
