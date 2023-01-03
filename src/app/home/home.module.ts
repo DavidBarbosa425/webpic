@@ -5,12 +5,14 @@ import { NgModule } from '@angular/core';
 import { SigninComponent } from './signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './signup/signup.component';
+import { HomeComponent } from './home.component';
 
 
 @NgModule({
     declarations: [
       SigninComponent,
-      SignUpComponent
+      SignUpComponent,
+      HomeComponent
     ],
     imports: [ReactiveFormsModule,
               CommonModule,

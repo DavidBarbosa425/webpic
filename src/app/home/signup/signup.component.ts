@@ -1,18 +1,31 @@
+import { PlatformDetectorService } from './../../core/platform-detector/platform-detector.service';
+import { Router } from '@angular/router';
+import { SignUpService } from './signup.service';
+import { NewUser } from './new-user';
 import { UserNotTakenValidatorsService } from './user-not-taken.validators.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'app-signup',
     templateUrl: './signup.component.html'
 })
 
-export class SignUpComponent implements OnInit {
+export class SignUpComponent implements OnInit, AfterViewInit {
 
     signUpForm!: FormGroup;
+    @ViewChild('inputEmail') inputEmail!: ElementRef<HTMLInputElement>
 
     constructor(private formBuilder: FormBuilder,
-                private userNotTakenValidatorsService: UserNotTakenValidatorsService) {}
+                private userNotTakenValidatorsService: UserNotTakenValidatorsService,
+                private signUpService: SignUpService,
+                private router:Router,
+                private platformDetectorService: PlatformDetectorService) {}
+
+    ngAfterViewInit(): void {
+        this.platformDetectorService.isPlatform() &&
+        this.inputEmail.nativeElement.focus()
+    }
 
     ngOnInit(): void {
         const fn = this.userNotTakenValidatorsService.checkUserNameTaken()
@@ -47,6 +60,16 @@ export class SignUpComponent implements OnInit {
             ]
         ]
         })
+    }
+
+    signup() {
+        const newUser: NewUser  = this.signUpForm.getRawValue() as NewUser
+
+        this.signUpService.signup(newUser)
+        .subscribe(() => this.router.navigate(['']),
+            err => alert(err)
+            
+        )
     }
 
 }

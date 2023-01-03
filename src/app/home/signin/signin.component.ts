@@ -1,7 +1,7 @@
 import { PlatformDetectorService } from './../../core/platform-detector/platform-detector.service';
 import { ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
-import { OnInit } from '@angular/core';
+import { OnInit, AfterViewInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
     templateUrl: './signin.component.html'
 
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent implements OnInit, AfterViewInit {
 
     loginForm!: FormGroup;
     @ViewChild('userNameInput')
@@ -25,13 +25,21 @@ export class SigninComponent implements OnInit {
 
     }
 
+
     ngOnInit(): void {
 
         this.loginForm = this.formBuilder.group({
             userName: ['', Validators.required],
             password: ['', Validators.required]
         })
+
     }
+
+    ngAfterViewInit(): void {
+        this.platformDetectorService.isPlatform() &&
+        this.userNameInput.nativeElement.focus()
+    }
+
 
     login(){
         

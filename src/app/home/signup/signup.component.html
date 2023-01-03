@@ -3,9 +3,9 @@
 <div class="row">
     <div class="col-8 m-auto">
 
-        <form [formGroup]="signUpForm" class="form mt-4">
+        <form [formGroup]="signUpForm" class="form mt-4" (submit)="signup()">
             <div class="form-group mb-4">
-                <input formControlName="email"  placeholder="email" class="form-control" autofocus >
+                <input #inputEmail formControlName="email"  placeholder="email" class="form-control" autofocus >
                 <app-vmessage 
                     *ngIf="signUpForm.get('email')?.errors?.['required']"
                     text="User name is required!">
