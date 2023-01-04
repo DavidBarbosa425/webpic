@@ -1,3 +1,4 @@
+import { ImmadiateClickModule } from './../shared/directives/immediate-click/immediate-click.module';
 import { RouterModule } from '@angular/router';
 import { VmessageModule } from './photo-list/search/vmessage/vmessage.module';
 import { VmessageComponent } from './photo-list/search/vmessage/vmessage-component';
@@ -35,7 +36,8 @@ import { CardModule } from '../shared/components/card/card.module';
         DarkenOnHoverModule,
         ReactiveFormsModule,
         VmessageModule,
-        RouterModule
+        RouterModule,
+        ImmadiateClickModule
     ]
 })
 

@@ -7,6 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 
 export class PlatformDetectorService {
+    isPlatformBrowser: any;
 
     constructor(@Inject(PLATFORM_ID) private platformId: string) {}
 

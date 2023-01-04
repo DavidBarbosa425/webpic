@@ -14,7 +14,7 @@ export class PhotoComponent {
 
    @Input() description = ''
 
-   @Input() set url(url: string) {
+   @Input() set url(url: any) {
     if(!url.startsWith('data'))
       this._url = cloud + url
     else

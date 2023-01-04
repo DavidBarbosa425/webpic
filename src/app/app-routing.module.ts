@@ -1,5 +1,6 @@
-
 import { AuthGuard } from './core/auth/auth.guard';
+
+import { LoginGuard } from './core/auth/login.guard';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 import { NotFoundComponent } from './erros/not-found/not-found.component';
 import { NgModule } from '@angular/core';
@@ -27,7 +28,8 @@ const routes: Routes = [
   },
   { 
     path:'p/add',
-      component: PhotoFormComponent
+      component: PhotoFormComponent,
+      canActivate: [AuthGuard]
   },
 
   {
