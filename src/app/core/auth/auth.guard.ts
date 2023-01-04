@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate  {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        debugger
+  
         if(this.userService.isLogged()){
             this.router.navigate(['user', this.userService.getUserLogged()])
             return false

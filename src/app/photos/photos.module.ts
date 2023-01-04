@@ -1,3 +1,7 @@
+import { RouterModule } from '@angular/router';
+import { VmessageModule } from './photo-list/search/vmessage/vmessage.module';
+import { VmessageComponent } from './photo-list/search/vmessage/vmessage-component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DarkenOnHoverModule } from './../shared/directives/darken-on-hover/darken-on-hover.module';
 import { SearchComponent } from './photo-list/search/search.component';
 import { PhotoFormComponent } from './photo-form/photo-form.component';
@@ -28,7 +32,10 @@ import { CardModule } from '../shared/components/card/card.module';
         HttpClientModule,
         CommonModule,
         CardModule,
-        DarkenOnHoverModule
+        DarkenOnHoverModule,
+        ReactiveFormsModule,
+        VmessageModule,
+        RouterModule
     ]
 })
 
