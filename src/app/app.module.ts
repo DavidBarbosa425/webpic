@@ -1,4 +1,4 @@
-import { HomeModule } from './home/home.module';
+
 import { PhotosModule } from './photos/photos.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
