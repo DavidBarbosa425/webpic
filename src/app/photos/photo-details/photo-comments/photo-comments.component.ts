@@ -6,7 +6,8 @@ import { PhotoComment } from '../../photo/photo.comment';
 
 @Component({
     selector: 'app-photoComments',
-    templateUrl: './photo-comments.component.html'
+    templateUrl: './photo-comments.component.html',
+    styleUrls: ['./photo-comments.css']
 })
 
 export class PhotoCommentsComponent implements OnInit {

@@ -54,4 +54,8 @@ export class PhotoService {
 
     return this.http.post(this.API + 'photos/' + photoId + '/comments', {commentText})
   }
+
+  deletePhoto(photoId: number) {
+    return this.http.delete(this.API + 'photos/' + photoId)
+  }
 }

@@ -1,3 +1,4 @@
+import { PhotoOwnerOnlyModule } from './photo-owner-only/photo-owner-only.module';
 import { VmessageModule } from './../photo-list/search/vmessage/vmessage.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -18,7 +19,8 @@ import { PhotoCommentsComponent } from './photo-comments/photo-comments.componen
         PhotoModule,
         RouterModule,
         ReactiveFormsModule,
-        VmessageModule
+        VmessageModule,
+        PhotoOwnerOnlyModule
     ],
     exports: [
         PhotoDetailsComponent,
