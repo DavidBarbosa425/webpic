@@ -1,3 +1,4 @@
+import { PhotoComment } from './../photo/photo.comment';
 import { Observable } from 'rxjs';
 import { PhotoService } from '../photo/photo-service';
 import {  ActivatedRoute } from '@angular/router';
@@ -14,6 +15,7 @@ export class PhotoDetailsComponent implements OnInit {
 
     photoId: any
     photo$?: Observable<Photo> | undefined
+   
 
     constructor(private activatedRoute: ActivatedRoute,
                 private photoService: PhotoService){}
@@ -23,6 +25,7 @@ export class PhotoDetailsComponent implements OnInit {
         this.photoId = this.activatedRoute.snapshot.params['photoId']
 
         this.photo$ = this.photoService.findById(this.photoId)
+        
 
         
     }

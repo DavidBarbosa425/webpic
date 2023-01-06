@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Photo } from './photo';
+import { PhotoComment } from './photo.comment';
 
 
 @Injectable({providedIn: 'root'})
@@ -39,7 +40,18 @@ export class PhotoService {
     return this.http.post(this.API + 'photos/upload', formData)
   }
 
-  findById(photoId: string){
+  findById(photoId: number){
     return this.http.get<Photo>(this.API + 'photos/' + photoId)
+  }
+
+  getComment(photoId: number){
+
+    return this.http.get<PhotoComment[]>(this.API + 'photos/' + photoId + '/comments')
+
+  }
+
+  postComment(photoId: number, commentText: string){
+
+    return this.http.post(this.API + 'photos/' + photoId + '/comments', {commentText})
   }
 }

@@ -4,8 +4,7 @@ const cloud: string = 'http://localhost:3000/imgs/'
 
 @Component({
   selector: 'app-photo',
-  templateUrl: './photo.component.html',
-  styleUrls: ['./photo.component.css']
+  templateUrl: './photo.component.html'
 })
 
 export class PhotoComponent {
