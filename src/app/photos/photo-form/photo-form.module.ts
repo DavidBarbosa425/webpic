@@ -1,3 +1,4 @@
+import { AlertModule } from './../../shared/components/alert/alert.module';
 import { ImmadiateClickModule } from './../../shared/directives/immediate-click/immediate-click.module';
 import { PhotoModule } from './../photo/photo.module';
 import { VmessageModule } from './../photo-list/search/vmessage/vmessage.module';
@@ -15,7 +16,8 @@ import { NgModule } from '@angular/core';
         VmessageModule,
         PhotoModule,
         ReactiveFormsModule,
-        ImmadiateClickModule
+        ImmadiateClickModule,
+        AlertModule
     ]
 })
 

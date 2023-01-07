@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-light bg-white">
         <div  class="me-auto m-2">
-            <h3 appDarkenOnHover><span class="text-primary">Web</span><span class="text-success">Pic</span></h3>
+            <a [routerLink]="['']"><h3 ><span class="text-primary">Web</span><span class="text-success">Pic</span></h3></a>
 
         </div>
         <div *ngIf="(user$ | async) as user; else login" class="ms-auto">
@@ -16,4 +16,7 @@
             </span>
         </ng-template>
     </nav>
+    <div class="fixed-top">
+        <app-alert></app-alert>
+    </div>
 </header>

@@ -1,3 +1,4 @@
+import { AlertService } from './../../shared/components/alert/alert.service';
 import { Router } from '@angular/router';
 import { PhotoService } from './../photo/photo-service';
 import { OnInit } from '@angular/core';
@@ -18,7 +19,9 @@ export class PhotoFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private photoService: PhotoService,
-              private router: Router) {}
+              private router: Router,
+              private alertService: AlertService
+              ) {}
 
   ngOnInit(): void {
 
@@ -35,8 +38,14 @@ export class PhotoFormComponent implements OnInit {
 
     this.photoService.upload(this.file, description, allowComments)
         .subscribe(res => {
+          this.alertService.success("Upload complete")
           this.router.navigate([''])
-        })
+        },
+        error => {
+          console.log(error);
+          this.alertService.danger("Error to upload photo")
+          this.router.navigate([''])
+      })
     
   }
 
