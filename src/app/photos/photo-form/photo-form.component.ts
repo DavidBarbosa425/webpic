@@ -38,12 +38,12 @@ export class PhotoFormComponent implements OnInit {
 
     this.photoService.upload(this.file, description, allowComments)
         .subscribe(res => {
-          this.alertService.success("Upload complete")
+          this.alertService.success("Upload complete", true)
           this.router.navigate([''])
         },
         error => {
           console.log(error);
-          this.alertService.danger("Error to upload photo")
+          this.alertService.danger("Error to upload photo", true)
           this.router.navigate([''])
       })
     

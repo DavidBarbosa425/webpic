@@ -35,12 +35,12 @@ export class PhotoDetailsComponent implements OnInit {
     delete() {
         this.photoService.deletePhoto(this.photoId)
         .subscribe(()=>{
-            this.alertService.success("Photo removed")
+            this.alertService.success("Photo removed", true)
             this.router.navigate([''])
         },
         error => {
             console.log(error);
-            this.alertService.danger("Error to removed photo")
+            this.alertService.danger("Error to removed photo", true)
             this.router.navigate([''])
         }
         )
