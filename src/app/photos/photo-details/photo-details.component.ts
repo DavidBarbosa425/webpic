@@ -3,7 +3,7 @@ import { PhotoComment } from './../photo/photo.comment';
 import { Observable } from 'rxjs';
 import { PhotoService } from '../photo/photo-service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, Renderer2 } from "@angular/core";
 import { Photo } from '../photo/photo';
 
 @Component({
@@ -21,7 +21,9 @@ export class PhotoDetailsComponent implements OnInit {
     constructor(private activatedRoute: ActivatedRoute,
                 private photoService: PhotoService,
                 private router:Router,
-                private alertService: AlertService
+                private alertService: AlertService,
+                private renderer2: Renderer2,
+                private elementRef: ElementRef<any>
                 ){}
 
     
@@ -50,5 +52,16 @@ export class PhotoDetailsComponent implements OnInit {
             this.router.navigate([''])
         }
         )
+    }
+
+    like(photId: number) {
+        console.log('cliquei');
+        
+        this.photoService.like(photId)
+        .subscribe(liked => {
+            if(liked){
+                this.photo$ = this.photoService.findById(photId)
+            }
+        })
     }
 }
