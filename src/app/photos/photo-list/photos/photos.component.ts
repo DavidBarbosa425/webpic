@@ -3,8 +3,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 
 @Component({
   selector: 'app-photos',
-  templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.css']
+  templateUrl: './photos.component.html'
 })
 
 export class PhotosComponent implements OnChanges {

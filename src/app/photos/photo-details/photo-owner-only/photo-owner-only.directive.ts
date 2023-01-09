@@ -18,7 +18,7 @@ export class PhotoOwnerOnlyDirective implements OnInit, AfterViewInit {
         ) {}
 
     ngAfterViewInit(): void {
-               debugger
+               
         this.userService
             .getUser()
             .subscribe((user) =>{
