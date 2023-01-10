@@ -1,4 +1,7 @@
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { filter, map, switchMap } from 'rxjs';
 
 
 
@@ -10,10 +13,23 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
  
-  constructor() {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private titleService: Title,
+    private router:Router
+    ) {}
 
   ngOnInit(): void {
-
+    this.router
+      .events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .pipe(map(()=> this.activatedRoute))
+      .pipe(map(route => {
+        while(route.firstChild) route = route.firstChild
+        return route
+      }))
+      .pipe(switchMap(route => route.data))
+      .subscribe(event => this.titleService.setTitle(event['title']))
   }
   
 }

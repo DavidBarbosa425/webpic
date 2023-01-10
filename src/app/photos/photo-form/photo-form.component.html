@@ -45,11 +45,20 @@
           </label>
         </div>
   
-        <button [disabled]="photoForm.invalid" type="submit" class="btn btn-primary form-control mb-2">
-          Upload
-        </button>
-  
-        <a (click)="cancelUpload()" class="btn btn-secondary form-control">Cancel</a>
+        <div *ngIf="!percentDone; else uploadProgress">
+
+          <button [disabled]="photoForm.invalid" type="submit" class="btn btn-primary form-control mb-2">
+            Upload
+          </button>
+    
+          <a (click)="cancelUpload()" class="btn btn-secondary form-control">Cancel</a>
+
       </div>
+
+      <ng-template #uploadProgress>
+        <div class="text-center display-4">uploading {{percentDone}}%</div>
+      </ng-template>
+
+    </div>
     </form>
   </div>
