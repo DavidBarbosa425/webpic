@@ -1,8 +1,26 @@
 <header>
     <nav class="navbar navbar-light bg-white">
         <div  class="me-auto m-2">
-            <a appDarkenOnHover brightness="10%" [routerLink]="['']"><h3 ><span class="text-primary">Web</span><span class="text-success">Pic</span></h3></a>
-
+            <a >
+                <h3 >
+                    <i tabindex="0" (keyup.space)="menu.toggle()" (click)="menu.toggle()" class="fa fa-bars mr-2"></i>
+                    <span 
+                     [routerLink]="['']">
+                        <span class="text-primary">
+                            Web
+                        </span>
+                        <span class="text-success">
+                            Pic
+                        </span>
+                    </span>
+                </h3>
+            </a>
+            <app-menu #menu>
+                <ul class="list-unstyled">
+                    <li><a [routerLink]="['']">HOME</a></li>
+                    <li><a showIfLogged [routerLink]="['p','add']">UPLOAD</a></li>
+                </ul>
+            </app-menu>
         </div>
         <div *ngIf="(user$ | async) as user; else login" class="ms-auto">
             <i class="fa fa-user-circle me-1"></i>
