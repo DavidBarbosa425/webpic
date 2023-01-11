@@ -1,3 +1,4 @@
+import { DarkenOnHoverModule } from './../../shared/directives/darken-on-hover/darken-on-hover.module';
 import { RouterModule } from '@angular/router';
 import { PhotoDetailsModule } from './../photo-details/photo-details.module';
 
@@ -25,7 +26,8 @@ import { CardModule } from 'src/app/shared/components/card/card.module';
         CommonModule,
         PhotoModule,
         CardModule,
-        RouterModule
+        RouterModule,
+        DarkenOnHoverModule
         ]
 })
 

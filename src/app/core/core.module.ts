@@ -1,3 +1,5 @@
+import { LoadingModule } from './../shared/components/loading/loading.module';
+import { DarkenOnHoverModule } from './../shared/directives/darken-on-hover/darken-on-hover.module';
 import { AlertModule } from './../shared/components/alert/alert.module';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
@@ -17,7 +19,9 @@ import { RequestInterceptor } from './auth/request.interceptor';
     imports: [
         CommonModule,
         RouterModule,
-        AlertModule],
+        AlertModule,
+        DarkenOnHoverModule,
+        LoadingModule],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
